@@ -36,3 +36,10 @@ Future Plans
   Implement theme switcher (light/dark).
   Add calculation history.
   Add configurable keyboard shortcuts.
+
+Screenshots of the gui:
+innitial window size: ![image](https://github.com/user-attachments/assets/d65ac3ad-e344-4e3d-bbff-f23bd006ffc9)
+full sized window: ![image](https://github.com/user-attachments/assets/73c20342-9bf5-4c5c-a5c4-2b6cf4f708ea)
+
+
+
