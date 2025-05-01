@@ -12,7 +12,7 @@ bool App::OnInit()
 {
     // Load the icon
     wxIcon appIcon;
-    if (!appIcon.LoadFile("C:\\Users\\ragha\\OneDrive\\Desktop\\C++\\gui_calculator\\gui_calculator\\calculator_icon.ico", wxBITMAP_TYPE_ICO)) {
+    if (!appIcon.LoadFile("resources/calculator_icon.ico", wxBITMAP_TYPE_ICO)) {
         return false;
     }
 
