@@ -1,29 +1,29 @@
 This is my first ever C++ project — a fully functional GUI calculator built using wxWidgets. It features a clean layout, keyboard input support, expression parsing, and custom button logic.
-
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________
 Features:
   
-	Standard calculator operations
+- Standard calculator operations
 
-	Keyboard + button input support
+- Keyboard + button input support
 
-	Custom expression evaluator
+- Custom expression evaluator
   
-	Panel-based UI (future support for scientific modes)
+- Panel-based UI (future support for scientific modes)
   
-	Input validation + error handling (syntax, divide-by-zero, etc.)
-
+- Input validation + error handling (syntax, divide-by-zero, etc.)
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________
 Built With:
 
-  C++23
+- C++23
   
-  wxWidgets — cross-platform GUI framework
-
+- wxWidgets — cross-platform GUI framework
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________
 Requirements:
 
-  C++ compiler (MSVC, g++, Clang, etc.)
+- C++ compiler (MSVC, g++, Clang, etc.)
   
-  wxWidgets library (setup instructions below)
-
+- wxWidgets library (setup instructions below)
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________
 How to Build
 
   Download the Solution.
