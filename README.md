@@ -1,10 +1,15 @@
 This is my first ever C++ project — a fully functional GUI calculator built using wxWidgets. It features a clean layout, keyboard input support, expression parsing, and custom button logic.
 
 Features:
+  
   Standard calculator operations
+
   Keyboard + button input support
+  
   Custom expression evaluator
+  
   Panel-based UI (future support for scientific modes)
+  
   Input validation + error handling (syntax, divide-by-zero, etc.)
 
 Built With:
