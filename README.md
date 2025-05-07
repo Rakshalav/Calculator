@@ -24,48 +24,51 @@ Requirements:
   
 - wxWidgets library (setup instructions below)
 _____________________________________________________________________________________________________________________________________________________________________________________________________________________
-How to Build
+How to Build (for Visual Studio):
 
-  Download the Solution.
+- Download the Solution.
   
-  Clone or download the repository.
+- Clone or download the repository.
   
-  Open the solution file in Visual Studio or your preferred IDE.
+- Open the solution file in Visual Studio or your preferred IDE.
   
-  If using Visual Studio, simply build and run.
+- If using Visual Studio, simply build and run.
   
-  If using other IDEs, ensure wxWidgets is properly set up as a dependency.
+- If using other IDEs, ensure wxWidgets is properly set up as a dependency also just download the .cpp, .h, .ico, .rc and .manifest files.
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________
+Platforms:
 
-Platforms
+- This project works perfectly on Windows 11 and is also intented to work on windows.
+  
+- It has not been tested on MacOS or Linux yet, but it should be cross-platform compatible with the right wxWidgets configuration.
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________
+Known Limitations:
 
-  This project works perfectly on Windows 11.
+- Only standard mode implemented so far.
   
-  It has not been tested on MacOS or Linux yet, but it should be cross-platform compatible with the right wxWidgets configuration.
+- Expression logic may need refinement for edge cases.
+  
+- No history or memory storage yet.
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________
+Future Plans:
 
-Known Limitations
-
-  Only standard mode implemented so far.
+- Add scientific mode (trig, log, factorial, etc.), most types of converters, and a simple graphing tool like GeoGebra.
   
-  Expression logic may need refinement for edge cases.
+- Implement theme switcher (light/dark).
   
-  No history or memory storage yet.
-
-Future Plans
-  Add scientific mode (trig, log, factorial, etc.), most types of converters, and a simple graphing tool like GeoGebra.
+- Add calculation history.
   
-  Implement theme switcher (light/dark).
-  
-  Add calculation history.
-  
-  Add configurable keyboard shortcuts.
-
+- Add configurable keyboard shortcuts.
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________
 Screenshots of the gui:
 
-innitial window size:
-![image](https://github.com/user-attachments/assets/d65ac3ad-e344-4e3d-bbff-f23bd006ffc9)
+- innitial window size:
 
-full sized window:
-![image](https://github.com/user-attachments/assets/73c20342-9bf5-4c5c-a5c4-2b6cf4f708ea)
+    ![image](https://github.com/user-attachments/assets/d65ac3ad-e344-4e3d-bbff-f23bd006ffc9)
+
+- full sized window:
+
+    ![image](https://github.com/user-attachments/assets/73c20342-9bf5-4c5c-a5c4-2b6cf4f708ea)
 
 
 
