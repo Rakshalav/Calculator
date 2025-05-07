@@ -27,14 +27,20 @@
 
 ---
 
-## ⚙️ How to Build (Visual Studio)
+## ⚙️ How to Build
 
-1. ⬇️ Download the Solution  
-2. 📁 Clone or download the repository  
-3. 🧷 Open the solution file in Visual Studio or your preferred IDE  
-4. ▶️ If using Visual Studio, simply build and run  
-5. 🧩 For other IDEs, ensure wxWidgets is properly set up as a dependency  
-6. 📂 Make sure to download `.cpp`, `.h`, `.ico`, `.rc`, and `.manifest` files
+### Visual Studio
+1. ⬇️ Download the `Source Code.zip` from the `release` section.
+2. 🧷 Open the `gui_calculator.sln`.
+3. ▶️ Simply build and run.
+
+### For other ID's
+1. 🧩 Ensure wxWidgets is properly set up as a dependency.
+2. 📂 Make sure to download and add al `.cpp`, `.h`, `.ico`, `.rc`, and `.manifest` files in your directory.
+3. Setup the Cmake file. (If needed)
+4. ▶️ Build and run.
+
+**If you don't care about the source code and just about the programm. You can download the** `Calculator.exe` **from** `relaease` **as well.**
 
 ---
 
