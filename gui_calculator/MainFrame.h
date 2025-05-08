@@ -72,6 +72,8 @@ private:
 
 	void OnKeyDown(wxKeyEvent& evt);
 
+	void ClearErrorMesg();
+
 public:
 	MainFrame(const wxString& title);
 };

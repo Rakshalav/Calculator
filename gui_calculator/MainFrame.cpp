@@ -135,19 +135,14 @@ void MainFrame::GetAnswer()
 	std::string answer = calc.Answer();
 	wxString result = wxString::FromUTF8(answer);
 
-	std::cout << "Result: " << result << std::endl;
-
 	input->Clear();
 	input->SetValue(result);
+	input->SetInsertionPointEnd();
 }
 
 void MainFrame::OnButtonPressed(wxCommandEvent& evt)
 {
-	wxString ErrorMessages = input->GetValue();
-	if (ErrorMessages == "Syntax error!" || ErrorMessages == "Math Error: Square root of negative number!" ||
-		ErrorMessages == "Math Error: Division by zero!" || ErrorMessages == "Unknown error!") {
-		input->Clear();
-	}
+	ClearErrorMesg();
 
 	int id = evt.GetId();
 	switch (id)
@@ -211,13 +206,18 @@ void MainFrame::OnBtnDel_pressed() {
 	}
 }
 
-void MainFrame::OnKeyDown(wxKeyEvent& evt)
+void MainFrame::ClearErrorMesg()
 {
 	wxString ErrorMessages = input->GetValue();
 	if (ErrorMessages == "Syntax error!" || ErrorMessages == "Math Error: Square root of negative number!" ||
 		ErrorMessages == "Math Error: Division by zero!" || ErrorMessages == "Unknown error!") {
 		input->Clear();
 	}
+}
+
+void MainFrame::OnKeyDown(wxKeyEvent& evt)
+{
+	ClearErrorMesg();
 
 	int KeyCode = evt.GetKeyCode();
 	bool shiftPressed = evt.ShiftDown();
