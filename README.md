@@ -31,9 +31,9 @@
 
 ### Note: This project was made and built on Visual Studio so the steps are Visual Studio.
 
-1. ⬇️ Download the `Source Code.zip` from the `release` section.
-2. 🧷 Open the `gui_calculator.sln`.
-3. ▶️ Simply build and run.
+1. ⬇️ Download the `Source Code.zip` from the `release` section or Clone or Fork this Reposirory
+2. 🧷 Open the `gui_calculator.sln`
+3. ▶️ Simply build and run
 
 **If you don't care about the source code and just about the programm. You can download the** `Calculator.exe` **from** `relaease` **as well.**
 
