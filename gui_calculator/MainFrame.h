@@ -72,8 +72,15 @@ private:
 
 	void OnKeyDown(wxKeyEvent& evt);
 
-	void ClearErrorMesg();
+	bool CheckErrorMessage(wxString ErrorMessages);
 
+	void AdjustInputFontSize();
+
+	void OnSize(wxSizeEvent& event);
+
+	int LastInputWidth = -1;
+
+	void OnIdle(wxIdleEvent& event);
 public:
 	MainFrame(const wxString& title);
 };

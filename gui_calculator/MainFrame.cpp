@@ -8,6 +8,9 @@ MainFrame::MainFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, title)
     font = wxFont(20, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL);
     font.SetFaceName("Segoe UI");
 
+	this->Bind(wxEVT_SIZE, &MainFrame::OnSize, this);
+	this->Bind(wxEVT_IDLE, &MainFrame::OnIdle, this);
+
     input = new wxTextCtrl(panel, wxID_ANY, "", wxDefaultPosition, wxSize(400, 100));
     input->SetEditable(false);
 	input->SetFont(font);
@@ -94,8 +97,62 @@ void MainFrame::SetUpSizers(std::vector<wxButton*> Buttons, wxFont font)
 
 void MainFrame::AppendSymbol(wxString& Symbol)
 {
+	uint8_t chars = 40;
+	if (input->GetValue().Length() >= chars)
+		return;
+
 	input->WriteText(Symbol);
 	input->SetInsertionPoint(input->GetInsertionPoint());
+	AdjustInputFontSize();
+}
+
+void MainFrame::AdjustInputFontSize()
+{
+	const int MAX_FONT_SIZE = 20;
+	const int MIN_FONT_SIZE = 12;
+
+	wxString text = input->GetValue();
+	if (text.IsEmpty()) {
+		input->SetFont(wxFont(MAX_FONT_SIZE, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
+		input->Refresh();
+		return;
+	}
+
+	wxClientDC dc(input);
+	int clientwidth = input->GetClientSize().GetWidth();
+	for (int fontSize = MAX_FONT_SIZE; fontSize >= MIN_FONT_SIZE; --fontSize) {
+		wxFont Font(fontSize, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL);
+		Font.SetFaceName("Segoe UI");
+		dc.SetFont(Font);
+
+		int textWidth, textHeight;
+		dc.GetTextExtent(text, &textWidth, &textHeight);
+
+		if (textWidth <= clientwidth) {
+			input->SetFont(Font);
+			input->Refresh();
+			break;
+		}
+	}
+}
+
+void MainFrame::OnSize(wxSizeEvent& event) {
+
+	AdjustInputFontSize();
+	input->Refresh();
+	this->Layout();
+
+	event.Skip(); 
+}
+
+void MainFrame::OnIdle(wxIdleEvent& event) 
+{
+	int currentwidth = input->GetClientSize().GetWidth();
+	if (currentwidth != LastInputWidth) {
+		AdjustInputFontSize();
+		LastInputWidth = currentwidth;
+	}
+	event.Skip();
 }
 
 void MainFrame::OnBackSpace_pressed()
@@ -142,7 +199,9 @@ void MainFrame::GetAnswer()
 
 void MainFrame::OnButtonPressed(wxCommandEvent& evt)
 {
-	ClearErrorMesg();
+	wxString currentInput = input->GetValue();
+	if (CheckErrorMessage(currentInput))
+		input->Clear();
 
 	int id = evt.GetId();
 	switch (id)
@@ -170,7 +229,10 @@ void MainFrame::OnButtonPressed(wxCommandEvent& evt)
 	case MainFrame::ID_BTN_NEGATIVE:     AppendSymbol(Text.Negative); break;
 	case MainFrame::ID_BTN_DELETE:       OnBtnDel_pressed(); break;
 	case MainFrame::ID_BTN_CLEARALL:     input->Clear(); break;
-	case MainFrame::ID_BTN_ANSWER:       GetAnswer(); break;
+	case MainFrame::ID_BTN_ANSWER:       
+		if (CheckErrorMessage(currentInput)) { input->Clear(); }
+		else { GetAnswer(); }
+		break;
 	case MainFrame::ID_BTN_DECIMAL:      AppendSymbol(Label.Decimal); break;
 
 	case MainFrame::ID_BTN_OPENBRACKET:  AppendSymbol(Label.BracketOpen); break;
@@ -206,18 +268,18 @@ void MainFrame::OnBtnDel_pressed() {
 	}
 }
 
-void MainFrame::ClearErrorMesg()
+bool MainFrame::CheckErrorMessage(wxString ErrorMessages)
 {
-	wxString ErrorMessages = input->GetValue();
 	if (ErrorMessages == "Syntax error!" || ErrorMessages == "Math Error: Square root of negative number!" ||
-		ErrorMessages == "Math Error: Division by zero!" || ErrorMessages == "Unknown error!") {
-		input->Clear();
-	}
+		ErrorMessages == "Math Error: Division by zero!" || ErrorMessages == "Unknown error!")
+		return true;
+	return false;
 }
 
 void MainFrame::OnKeyDown(wxKeyEvent& evt)
 {
-	ClearErrorMesg();
+	if (CheckErrorMessage(input->GetValue()))
+		input->Clear();
 
 	int KeyCode = evt.GetKeyCode();
 	bool shiftPressed = evt.ShiftDown();
