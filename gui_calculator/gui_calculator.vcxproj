@@ -20,14 +20,18 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h" />
+    <ClInclude Include="SharedResources.h" />
     <ClInclude Include="StandardCalcLogic.h" />
     <ClInclude Include="MainFrame.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="StandardCalcPanel.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="App.cpp" />
+    <ClCompile Include="SharedResources.cpp" />
     <ClCompile Include="StandardCalcLogic.cpp" />
     <ClCompile Include="MainFrame.cpp" />
+    <ClCompile Include="StandardCalcPanel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="App.manifest" />
