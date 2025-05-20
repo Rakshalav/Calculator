@@ -33,7 +33,8 @@
 
 1.  Download the `Source Code.zip` from the `release` section or Clone or Fork this Reposirory
 2.  Open the `gui_calculator.sln`
-3.  Simply build and run
+3.  Before Building Make sure to add `calculator.ico` to the directory where the `Calculator.exe` file is going to build.
+4.  Simply build and run
 
 **If you don't care about the source code and just about the programm. You can download the** `Calculator.exe` **from** `relaease` **as well.**
 
