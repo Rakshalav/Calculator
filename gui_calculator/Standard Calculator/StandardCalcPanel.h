@@ -9,11 +9,11 @@ private:
 	wxFrame* MainFrame;
 	wxTextCtrl* input;
 	wxFont* font;
-	uint8_t Btn_Width_Height = 95;
+	uint8_t Btn_Width_Height = 90;
 
 	struct Buttons {
-		wxButton* Root;        wxButton* Power2;       wxButton* Delete;    wxButton* ClearAll;
-		wxButton* OpenBracket; wxButton* CloseBracket; wxButton* Exponent;  wxButton* Divide;
+		wxButton* OpenBracket; wxButton* CloseBracket; wxButton* Delete;    wxButton* ClearAll;
+		wxButton* Root;        wxButton* Power2;       wxButton* Exponent;  wxButton* Divide;
 		wxButton* Seven;       wxButton* Eight;        wxButton* Nine;      wxButton* Multiply;
 		wxButton* Four;        wxButton* Five;         wxButton* Six;       wxButton* Add;
 		wxButton* One;         wxButton* Two;          wxButton* Three;     wxButton* Subtract;
@@ -22,8 +22,8 @@ private:
 	Buttons button;
 
 	struct ButtonLabels {
-		wxString Root = L"√x";      wxString Power2 = "x²";      wxString Delete = "DEL"; wxString ClearAll = "AC";
-		wxString BracketOpen = "("; wxString BracketClose = ")"; wxString Exponent = "^"; wxString Divide = "÷";
+		wxString BracketOpen = "("; wxString BracketClose = ")"; wxString Delete = "DEL"; wxString ClearAll = "AC";
+		wxString Root = L"√x";      wxString Power2 = "x²";      wxString Exponent = "^"; wxString Divide = "÷";
 		wxString Seven = "7";       wxString Eight = "8";        wxString Nine = "9";     wxString Multiply = "×";
 		wxString Four = "4";        wxString Five = "5";         wxString Six = "6";      wxString Add = "+";
 		wxString One = "1";         wxString Two = "2";          wxString Three = "3";    wxString Substract = "–";
@@ -75,6 +75,8 @@ private:
 	void OnIdle(wxIdleEvent& event);
 
 public:
-	StandardCalcPanel(wxFrame* mainframe);
+	StandardCalcPanel(wxWindow* parent, wxTextCtrl* Input, wxFont& Font);
+
+	void HandlerProxyKeyDown(wxKeyEvent& evt) { OnKeyDown(evt); }
 };
 

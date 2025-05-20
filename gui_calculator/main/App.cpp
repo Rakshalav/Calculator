@@ -1,8 +1,10 @@
 #include "App.h"
 #include "MainFrame.h"
 #include <wx/wx.h>
-#include <cstdint>
 #include <wx/icon.h>
+#include <wx/stdpaths.h>
+#include <wx/filename.h>
+#include <cstdint>
 
 wxIMPLEMENT_APP(App);
 
@@ -10,20 +12,19 @@ const uint16_t width = 405, height = 700;
 
 bool App::OnInit()
 {
-    // Load the icon
+    wxString IconPath = "calculator_icon.ico";
+
     wxIcon appIcon;
-    if (!appIcon.LoadFile("C:\\Users\\ragha\\OneDrive\\Desktop\\C++\\gui_calculator\\gui_calculator\\calculator_icon.ico", wxBITMAP_TYPE_ICO)) {
+    if (!appIcon.LoadFile(IconPath, wxBITMAP_TYPE_ICO)) {
+        wxLogError("Failed to load icon from: %s", IconPath);
         return false;
     }
 
-    // Create the main frame
     MainFrame* mainFrame = new MainFrame("Calculator");
     mainFrame->SetClientSize(width, height);
     mainFrame->Center();
-    mainFrame->Show();
-
-    // Set the icon for the window
     mainFrame->SetIcon(appIcon);
+    mainFrame->Show();
 
     return true;
 }

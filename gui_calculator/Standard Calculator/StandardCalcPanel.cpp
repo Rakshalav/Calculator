@@ -1,27 +1,17 @@
 #include "StandardCalcPanel.h"
-#include "SharedResources.h"
 #include "StandardCalcLogic.h"
 
-StandardCalcPanel::StandardCalcPanel(wxFrame* mainframe) : wxPanel(mainframe, wxID_ANY)
+StandardCalcPanel::StandardCalcPanel(wxWindow* parent, wxTextCtrl* Input, wxFont& Font) : wxPanel(parent, wxID_ANY)
 {
-	this->MainFrame = mainframe;
-	SharedResources resources;
-	this->input = resources.Input;
-	this->font = &resources.Font;
+	this->input = Input;
+	this->font = &Font;
 	this->font->SetFaceName("Segoe UI");
 
 	this->Bind(wxEVT_SIZE, &StandardCalcPanel::OnSize, this);
 	this->Bind(wxEVT_IDLE, &StandardCalcPanel::OnIdle, this);
 
-	input = new wxTextCtrl(this, wxID_ANY, "", wxDefaultPosition, wxSize(400, 100));
-	input->SetEditable(false);
-	input->SetFont(*font);
-
 	std::vector<wxButton*> buttons = CreateButtons();
 	SetUpSizers(buttons, *font);
-
-	this->Bind(wxEVT_CHAR_HOOK, &StandardCalcPanel::OnKeyDown, this);
-	this->SetFocus();
 }
 
 void StandardCalcPanel::SetUpSizers(std::vector<wxButton*> Buttons, wxFont font)
@@ -34,12 +24,8 @@ void StandardCalcPanel::SetUpSizers(std::vector<wxButton*> Buttons, wxFont font)
 		ButtonsSizer->Add(Button, flags);
 	}
 
-	wxBoxSizer* mainSizer = new wxBoxSizer(wxVERTICAL);
-	mainSizer->Add(input, wxSizerFlags().Expand().Proportion(0).Border(wxALL, 5));
-	mainSizer->Add(ButtonsSizer, wxSizerFlags().Expand().Proportion(1).Border(wxALL, 5));
-
-	this->SetSizer(mainSizer);
-	mainSizer->SetSizeHints(MainFrame);
+	this->SetSizer(ButtonsSizer);
+	ButtonsSizer->SetSizeHints(this);
 }
 
 std::vector<wxButton*> StandardCalcPanel::CreateButtons()
@@ -189,13 +175,15 @@ void StandardCalcPanel::GetAnswer()
 {
 	wxString equation = input->GetValue();
 
-	StandardCalcLogic calc(std::string(equation.mb_str()));
-	std::string answer = calc.Answer();
-	wxString result = wxString::FromUTF8(answer);
+	if (!equation.IsEmpty()) {
+		StandardCalcLogic calc(std::string(equation.mb_str()));
+		std::string answer = calc.Answer();
+		wxString result = wxString::FromUTF8(answer);
 
-	input->Clear();
-	input->SetValue(result);
-	input->SetInsertionPointEnd();
+		input->Clear();
+		input->SetValue(result);
+		input->SetInsertionPointEnd();
+	}
 }
 
 // fix: delete key issues

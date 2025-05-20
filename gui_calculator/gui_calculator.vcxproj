@@ -19,28 +19,28 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="App.h" />
-    <ClInclude Include="SharedResources.h" />
-    <ClInclude Include="StandardCalcLogic.h" />
-    <ClInclude Include="MainFrame.h" />
-    <ClInclude Include="resource.h" />
-    <ClInclude Include="StandardCalcPanel.h" />
+    <ClCompile Include="main\App.cpp" />
+    <ClCompile Include="main\MainFrame.cpp" />
+    <ClCompile Include="Scintific Calculator\ScientificCalcPanel.cpp" />
+    <ClCompile Include="Standard Calculator\StandardCalcLogic.cpp" />
+    <ClCompile Include="Standard Calculator\StandardCalcPanel.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="App.cpp" />
-    <ClCompile Include="SharedResources.cpp" />
-    <ClCompile Include="StandardCalcLogic.cpp" />
-    <ClCompile Include="MainFrame.cpp" />
-    <ClCompile Include="StandardCalcPanel.cpp" />
+    <ClInclude Include="main\App.h" />
+    <ClInclude Include="main\MainFrame.h" />
+    <ClInclude Include="Resources\resource.h" />
+    <ClInclude Include="Scintific Calculator\ScientificCalcPanel.h" />
+    <ClInclude Include="Standard Calculator\StandardCalcLogic.h" />
+    <ClInclude Include="Standard Calculator\StandardCalcPanel.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\calculator_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resources\resource.rc" />
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="App.manifest" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="calculator_icon.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="resource.rc" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -48,6 +48,7 @@
     <ProjectGuid>{704e32a5-a0cb-4d74-a872-b42b8165ba53}</ProjectGuid>
     <RootNamespace>guicalculator</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Calculator</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -136,6 +137,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(WXWIN)\lib\vc_x64_lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ManifestFile>C:\Users\ragha\OneDrive\Desktop\C++\gui_calculator\gui_calculator\Resources\App.manifest</ManifestFile>
     </Link>
     <Manifest>
       <AdditionalManifestFiles>"C:\Users\ragha\OneDrive\Desktop\C++\gui_calculator\gui_calculator\App.manifest" %(AdditionalManifestFiles)</AdditionalManifestFiles>
@@ -157,6 +159,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(WXWIN)\lib\vc_x64_lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ManifestFile>C:\Users\ragha\OneDrive\Desktop\C++\gui_calculator\gui_calculator\Resources\App.manifest</ManifestFile>
     </Link>
     <Manifest>
       <AdditionalManifestFiles>"C:\Users\ragha\OneDrive\Desktop\C++\gui_calculator\gui_calculator\App.manifest" %(AdditionalManifestFiles)</AdditionalManifestFiles>
