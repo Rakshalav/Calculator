@@ -1,33 +1,33 @@
-# 🧮 C++ wxWidgets GUI Calculator  
+# C++ wxWidgets GUI Calculator  
 *A beginner-friendly GUI calculator built with C++ and wxWidgets*
 
 ---
 
-## ✨ Features
+## Features
 
 - Standard calculator operations  
--  Keyboard + 🖱️ button input support  
+-  Keyboard + Mouse button input support  
 -  Custom expression evaluator  
 -  Panel-based UI *(future support for scientific modes)*  
 -  Input validation + error handling *(syntax, divide-by-zero, etc.)*
 
 ---
 
-## 🛠️ Built With
+## Built With
 
 - `C++23`  
 - `wxWidgets` — cross-platform GUI framework
 
 ---
 
-## 📦 Requirements
+##  Requirements
 
 -  C++ compiler (MSVC, g++, Clang, etc.)  
 -  wxWidgets library *(setup instructions below)*
 
 ---
 
-## ⚙️ How to Build (Visaul Studio)
+##  How to Build (Visaul Studio)
 
 ### Note: This project was made and built on Visual Studio so the steps are Visual Studio.
 
@@ -40,14 +40,14 @@
 
 ---
 
-## 💻 Platforms
+##  Platforms
 
 -  **Tested on Windows 11**  
 -  Untested on macOS/Linux but **should** be cross-platform compatible with proper wxWidgets setup
 
 ---
 
-## ⚠️ Known Limitations
+##  Known Limitations
 
 -  Only standard mode implemented  
 -  Expression logic may have edge case issues  
@@ -55,7 +55,7 @@
 
 ---
 
-## 🚀 Future Plans
+##  Future Plans
 
 -  Add **Scientific Mode** *(trig, log, factorial, etc.)*  
 -  Add **Converters** and a simple graphing tool like GeoGebra  
